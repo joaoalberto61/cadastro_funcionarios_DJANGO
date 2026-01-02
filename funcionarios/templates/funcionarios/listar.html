@@ -1,0 +1,16 @@
+<h1>Funcionários</h1>
+
+<a href="{% url 'adicionar_funcionario' %}">Novo Funcionário</a>
+
+<ul>
+    {% for funcionario in funcionarios %}
+        <li>
+            {{ funcionario.nome }} {{ funcionario.sobrenome }} |
+            CPF: {{ funcionario.cpf }} |
+            R$ {{ funcionario.remuneracao }}
+
+            <a href="{% url 'atualizar_funcionario' funcionario.id %}">Editar</a>
+            <a href="{% url 'deletar_funcionario' funcionario.id %}">Excluir</a>
+        </li>
+    {% endfor %}
+</ul>
